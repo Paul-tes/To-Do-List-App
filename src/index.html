@@ -4,9 +4,28 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= htmlWebpackPlugin.options.title %></title>
+  <script src="https://kit.fontawesome.com/4e57741acf.js" crossorigin="anonymous"></script>
+  <title>To-Do List</title>
 </head>
 <body>
-  <h1>Is my templete are working?</h1>
+  <main>
+    <div class="container">
+      <div class="item">
+        <div class="heading">Today's To Do</div>
+        <i class="fas fa-sync sync-btn"></i>
+      </div>
+      <div class="item">
+        <input class="task-adder-input" type="text" placeholder="Add to your list...">
+        <i class="fas fa-arrow-circle-left add-task-btn"></i>
+      </div>
+      <div class="item">
+        <div class="tasks-container">
+        </div>
+      </div>
+      <div class="item">
+        <button class="clear-all-btn">Clear all completed</button>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
