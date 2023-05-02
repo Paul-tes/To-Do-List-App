@@ -95,63 +95,20 @@ input {
 .task {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
-  align-items: center;
+  padding: 0.5rem;
   border-bottom: 0.5px solid #d3d3d3;
 }
 
-.task:last-child {
-  border-bottom: 0;
+.dots-icon {
+  color:  #a1a1a1;
 }
 
-.task .dots-icon,
-.trash-icon {
-  color: #a1a1a1;
-  cursor: move;
+.dots-icon:hover {
+  color: #404040;
 }
 
-.task .trash-icon {
-  display: none;
-}
-
-.dots-icon.active {
-  display: none;
-}
-
-.trash-icon.active {
-  display: block;
-  cursor: pointer;
-}
-
-.trash-icon.active:hover {
-  color: #595959;
-  transition-duration: 0.2s;
-}
-
-.tasks-container .task-content {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-}
-
-.task-content .task-value {
+.task-value {
   font-size: 0.85rem;
-  width: 100%;
-  padding: 10px 0;
-  outline: none;
-  cursor: text;
-  background-color: transparent;
-}
-
-input:checked ~ .task-value {
-  text-decoration: line-through;
-  opacity: 0.4;
-}
-
-.task.active {
-  background-color: #ffc;
-  transition: 0.2s ease-in;
 }
 
 .item .clear-all-btn {
