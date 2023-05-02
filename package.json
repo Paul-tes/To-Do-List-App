@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Paul-tes/To-Do-List-App#readme",
   "devDependencies": {
+    "html-webpack-plugin": "^5.5.1",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2"
   }
