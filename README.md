@@ -150,7 +150,7 @@ https://github.com/Paul-tes/To-Do-List-App.git
 <!-- CONTRIBUTING -->
 ## 🤝 Contributing <a name="contributing"></a>
 Contributions, issues, and feature requests are welcome!<br/>
-Feel free to check the https://github.com/paul-tes
+Feel free to check the https://github.com/Paul-tes/To-Do-List-App/issues
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- SUPPORT -->
@@ -166,7 +166,7 @@ I would like to thank Microverse for required documentations and instructions
 <!-- LICENSE -->
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/bronnie313/Todo-list/blob/main/LICENSE) licensed.
+This project is [MIT](https://github.com/Paul-tes/To-Do-List-App/issues) licensed.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
