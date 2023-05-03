@@ -21,7 +21,7 @@ const todoLists = [
 const displayLists = () => {
   const lists = todoLists;
   const taskContainer = document.querySelector('.tasks-container');
-  lists.forEach( (t) => {
+  lists.forEach((t) => {
     const task = document.createElement('div');
     task.innerHTML = `
     <div class="task-cont">
