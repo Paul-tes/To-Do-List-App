@@ -16,13 +16,12 @@ const todoLists = [
     desctiption: 'Get Ready for WebPack',
     completed: true,
   },
-]
+];
 
 const displayLists = () => {
   const lists = todoLists;
   const taskContainer = document.querySelector('.tasks-container');
-  console.log(taskContainer);
-  lists.forEach(t => {
+  lists.forEach( (t) => {
     const task = document.createElement('div');
     task.innerHTML = `
     <div class="task-cont">
@@ -32,10 +31,10 @@ const displayLists = () => {
     <div class="opp-icon">
       <i class="fa fa-ellipsis-v dots-icon"></i>
     </div>
-    `
+    `;
     task.classList.add('task');
     taskContainer.appendChild(task);
   });
-}
+};
 
 displayLists();
