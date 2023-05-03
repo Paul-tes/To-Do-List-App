@@ -166,7 +166,7 @@ I would like to thank Microverse for required documentations and instructions
 <!-- LICENSE -->
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](https://github.com/Paul-tes/To-Do-List-App/issues) licensed.
+This project is [MIT](https://github.com/Paul-tes/To-Do-List-App/blob/main/LICENSE) licensed.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
