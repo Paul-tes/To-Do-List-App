@@ -92,6 +92,10 @@ input {
   color: #595959;
 }
 
+.task-cont {
+  width: 100%;
+}
+
 .task {
   display: flex;
   justify-content: space-between;
@@ -109,6 +113,13 @@ input {
 
 .task-value {
   font-size: 0.85rem;
+  color: #404040;
+  font-weight: 500;
+  width: 90%;
+}
+
+.task-value:focus {
+  background-color: #fffed7;
 }
 
 .item .clear-all-btn {
@@ -118,6 +129,16 @@ input {
   border-radius: 0;
   border: none;
   color: #595959;
+}
+
+.checked {
+  color: #a1a1a1;
+  text-decoration: line-through;
+}
+
+.unchacked {
+  color: #404040;
+  text-decoration: none;
 }
 
 @media only screen and (min-width: 768px) {
