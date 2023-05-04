@@ -1,16 +1,17 @@
+import Task from './Task.js';
 class Store {
 
   // LASTINDEX is the value of the last item index in the local storage.
-  static LASTINDEX;
+  static LASTINDEX = 0;
 
   // get all to do lists from local stroage if local storage has a data.
   // return lists of to do lists from the local storage.
   static getTasks() {
     let tasks;
     if(localStorage.getItem('tasks') === null) {
-      tasks = [];
+      tasks = []; 
     } else {
-      tasks = JSON.stringify(localStorage.getItem('tasks'));
+      tasks = JSON.parse(localStorage.getItem('tasks'));
       this.LASTINDEX = tasks.length;
     }
 
@@ -23,7 +24,7 @@ class Store {
   // update LASTINDEX.
   // return void.
   static addTask(task) {
-    let tasks = Store.getTasks();
+    const tasks = Store.getTasks();
     tasks.push(task);
     localStorage.setItem('tasks', JSON.stringify(tasks));
     this.LASTINDEX = tasks.length;
