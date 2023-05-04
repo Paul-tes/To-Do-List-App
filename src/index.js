@@ -15,9 +15,9 @@ class Ui {
       const taskContainer = ELEMENTS.taskContainer;
           const Element = document.createElement('div');
           Element.innerHTML = `
-          <div class="Element-cont">
-            <input type="checkbox" name="Element" id="Element-check-box">
-            <input type="text" value="${task.description}" class="Element-value">
+          <div class="task-cont">
+            <input type="checkbox" name="task" id="task-check-box">
+            <input type="text" value="${task.description}" class="task-value">
           </div>
           <div class="opp-icon">
             <i class="fa fa-ellipsis-v dots-icon"></i>
