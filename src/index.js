@@ -98,9 +98,9 @@ elem.listContainer.addEventListener('click', (event) => {
 
 // update task when the user lefts the input field.
 elem = new Elements();
-let inputs = elem.inputs;
+const { inputs } = elem;
 for (let i = 0; i < inputs.length; i += 1) {
   inputs[i].addEventListener('blur', (e) => {
     Store.updateTask(e.target.id, e.target.value);
-  })
+  });
 }
