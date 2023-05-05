@@ -8,20 +8,20 @@ class Ui {
     const tasks = Store.getTasks();
     tasks.forEach((task) => Ui.addTask(task));
   }
-  
+
   static addTask(task) {
     const elem = new Elements();
     const { taskContainer } = elem;
-      const Element = document.createElement('div');
-      Element.innerHTML = `
-      <div class="task-cont">
-        <input type="checkbox" name="task" id="task-check-box">
-        <input type="text" value="${task.description}" class="task-value" id="${task.index}">
-      </div>
-      <div class="opp-icon">
-        <i class="fa fa-ellipsis-v dots-icon"></i>
-      </div>
-      `;
+    const Element = document.createElement('div');
+    Element.innerHTML = `
+    <div class="task-cont">
+      <input type="checkbox" name="task" id="task-check-box">
+      <input type="text" value="${task.description}" class="task-value" id="${task.index}">
+    </div>
+    <div class="opp-icon">
+      <i class="fa fa-ellipsis-v dots-icon"></i>
+    </div>
+    `;
       Element.classList.add('task');
       taskContainer.appendChild(Element);
   }
@@ -49,9 +49,9 @@ class Ui {
   }
 
   static taskClearActiveState(tasks) {
-    for (const task of tasks) {
-      task.style.backgroundColor = 'white';
-      Ui.changeIconDots(task.lastElementChild.lastElementChild);
+    for (let i = 0; i < tasks.length; i++) {
+      tasks[i].style.backgroundColor = 'white';
+      Ui.changeIconDots(tasks[i].lastElementChild.lastElementChild);
     }
   }
 
