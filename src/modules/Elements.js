@@ -6,6 +6,8 @@ class Elements {
   taskDiv = document.querySelector('.task');
 
   listContainer = document.querySelector('.container');
+
+  inputs = document.querySelectorAll('.task-value');
 }
 
 export default Elements;

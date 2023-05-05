@@ -49,6 +49,17 @@ class Store {
     localStorage.setItem('tasks', JSON.stringify(tasks));
     this.LASTINDEX = tasks.length;
   }
+
+  static updateTask(index, description) {
+    const tasks = Store.getTasks();
+    tasks.forEach((task) => {
+      if (task.index === Number(index)) {
+        task.description = description;
+      }
+    })
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    this.LASTINDEX = tasks.length;
+  }
 }
 
 export default Store;

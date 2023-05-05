@@ -69,7 +69,7 @@ let elem = new Elements();
 elem.inputField.addEventListener('keypress', (event) => {
   if (event.key === 'Enter' && elem.inputField.value !== '') {
     event.preventDefault();
-    const task = new Task(Store.LASTINDEX + 1, elem.inputField.value, true);
+    const task = new Task(Store.LASTINDEX + 1, elem.inputField.value, false);
     Ui.addTask(task);
     Store.addTask(task);
     Ui.clearInput();
@@ -87,6 +87,7 @@ elem.listContainer.addEventListener('click', (event) => {
     // set Acive state to the task
     const task = event.target.parentElement.parentElement;
     Ui.taskActiveState(task);
+    Store.updateTask(event.target.id, event.target.value);
   }
 
   if (event.target.classList.contains('trash-icon')) {
@@ -94,3 +95,12 @@ elem.listContainer.addEventListener('click', (event) => {
     Store.removeTask(event.target.parentElement.previousElementSibling.lastElementChild.id);
   }
 });
+
+// update task when the user lefts the input field.
+elem = new Elements();
+let inputs = elem.inputs;
+for (let i = 0; i < inputs.length; i += 1) {
+  inputs[i].addEventListener('blur', (e) => {
+    Store.updateTask(e.target.id, e.target.value);
+  })
+}
