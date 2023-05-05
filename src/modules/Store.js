@@ -50,12 +50,46 @@ class Store {
     this.LASTINDEX = tasks.length;
   }
 
+  // recive task index and description as a parameter.
+  // search task from the local storage and update task description using index as a key.
+  // reorder task index according to thire order.
+  // set updated list in to local storage.
+  // return void.
   static updateTask(index, description) {
     const tasks = Store.getTasks();
     tasks.forEach((task) => {
       if (task.index === Number(index)) {
         task.description = description;
       }
+    });
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    this.LASTINDEX = tasks.length;
+  }
+
+  // recive index and status as parameter.
+  // search task from local storage using index key.
+  // update status
+  // update local storage.
+  // retrun void.
+  static updateStatus(index, status) {
+    const tasks = Store.getTasks();
+    tasks.forEach((task) => {
+      if (task.index === Number(index)) task.completed = status;
+    });
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
+  // clear Completed Tasks
+  // get tasks from local storage remove all completed tasks using filter().
+  // update local storage.
+  // return void.
+  static clearCompleteTasks() {
+    let tasks = Store.getTasks();
+    tasks = tasks.filter((task) => task.completed === false);
+    let i = 1;
+    tasks.forEach((task) => {
+      task.index = i;
+      i += 1;
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
     this.LASTINDEX = tasks.length;

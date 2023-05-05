@@ -15,8 +15,8 @@ class Ui {
     const Element = document.createElement('div');
     Element.innerHTML = `
     <div class="task-cont">
-      <input type="checkbox" name="task" id="task-check-box">
-      <input type="text" value="${task.description}" class="task-value" id="${task.index}">
+      <input type="checkbox" name="task" class="task-check-box" ${task.completed ? 'checked': ''}>
+      <input type="text" value="${task.description}" class="task-value ${task.completed ? 'checked': 'unchacked'}" id="${task.index}">
     </div>
     <div class="opp-icon">
       <i class="fa fa-ellipsis-v dots-icon"></i>
@@ -76,24 +76,51 @@ elem.inputField.addEventListener('keypress', (event) => {
   }
 });
 
-// Delete
+// click operations
 elem.listContainer.addEventListener('click', (event) => {
   if (event.target.classList.contains('task-value')) {
+    // when it cleack away first clear active state
     // clear active state to the task
     elem = new Elements();
     const tasks = elem.taskContainer.children;
     Ui.taskClearActiveState(tasks);
 
     // set Acive state to the task
+    // click task and set active
     const task = event.target.parentElement.parentElement;
     Ui.taskActiveState(task);
     Store.updateTask(event.target.id, event.target.value);
   }
 
+  // delete task
+  // click trash icon to delete task
   if (event.target.classList.contains('trash-icon')) {
     Ui.removeTask(event.target.parentElement.parentElement);
     Store.removeTask(event.target.parentElement.previousElementSibling.lastElementChild.id);
   }
+
+  // chek box interactive
+  // set completed ture and make through line if it is checked.
+  // make complete false and remove through line from completed task.
+  if (event.target.classList.contains('task-check-box')) {
+    if (event.target.checked) {
+      event.target.nextElementSibling.classList.remove('unchacked');
+      event.target.nextElementSibling.classList.add('checked');
+      Store.updateStatus(event.target.nextElementSibling.id, true);
+    } else {
+      event.target.nextElementSibling.classList.remove('checked');
+      event.target.nextElementSibling.classList.add('unchacked');
+      Store.updateStatus(event.target.nextElementSibling.id, false);
+    }
+  }
+
+  // clear all completed button operation.
+  // get all completed tasks.
+  // remove all, update Ui and Local Storage.
+  if (event.target.classList.contains('clear-all-btn')) {
+    Store.clearCompleteTasks();
+    location.reload();
+  } 
 });
 
 // update task when the user lefts the input field.
