@@ -132,6 +132,11 @@ input {
   color: #595959;
 }
 
+.item .clear-all-btn:hover {
+  text-decoration: underline;
+  color: #595959;
+}
+
 .checked {
   color: #a1a1a1;
   text-decoration: line-through;
