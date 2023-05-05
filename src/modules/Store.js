@@ -1,5 +1,3 @@
-import Task from './Task.js';
-
 class Store {
   // LASTINDEX is the value of the last item index in the local storage.
   static LASTINDEX = 0;
