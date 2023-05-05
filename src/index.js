@@ -2,8 +2,7 @@ import './styles/style.css';
 import Store from './modules/Store.js';
 import Elements from './modules/Elements.js';
 import Task from './modules/Task.js';
-
-const ELEMENTS = new Elements();
+import { Color } from 'three';
 
 class Ui {
     static displayTasks() {
@@ -12,7 +11,8 @@ class Ui {
     }
 
     static addTask(task) {
-      const taskContainer = ELEMENTS.taskContainer;
+      const elem = new Elements();
+      const taskContainer = elem.taskContainer;
           const Element = document.createElement('div');
           Element.innerHTML = `
           <div class="task-cont">
@@ -28,20 +28,36 @@ class Ui {
     };
 
     static clearInput() {
-      ELEMENTS.inputField.value = '';
+      const elem = new Elements();
+      elem.inputField.value = '';
+    }
+
+    static changeIconTrash(trash) {
+      trash.className = '';
+      const deleteIconClass = ['fa', 'fa-trash', 'trash-icon'];
+      trash.classList.add(...deleteIconClass);
     }
 };
-
 // Display tasks.
 Ui.displayTasks();
 
 // add Element
-ELEMENTS.inputField.addEventListener('keypress', (event) => {
-  if (event.key === 'Enter' && ELEMENTS.inputField.value != '') {
+let elem = new Elements();
+elem.inputField.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter' && elem.inputField.value != '') {
     event.preventDefault();
-    let task = new Task(Store.LASTINDEX + 1, ELEMENTS.inputField.value, true);
+    let task = new Task(Store.LASTINDEX + 1, elem.inputField.value, true);
     Ui.addTask(task);
     Store.addTask(task);
     Ui.clearInput();
   }
+});
+
+// Delete
+elem = new Elements();
+elem.listContainer.addEventListener('click', (event) => {
+  event.target.style.backgroundColor = '#fffed7';
+
+  const i = event.target.parentElement.parentElement.lastElementChild.firstElementChild;
+  Ui.changeIconTrash(i);
 });

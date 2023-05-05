@@ -103,8 +103,12 @@ input {
   border-bottom: 0.5px solid #d3d3d3;
 }
 
-.dots-icon {
+.opp-icon i {
   color: #a1a1a1;
+}
+
+.opp-icon i:hover {
+  color: #595959;
 }
 
 .dots-icon:hover {
