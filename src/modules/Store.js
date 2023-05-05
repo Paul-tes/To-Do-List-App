@@ -56,7 +56,7 @@ class Store {
       if (task.index === Number(index)) {
         task.description = description;
       }
-    })
+    });
     localStorage.setItem('tasks', JSON.stringify(tasks));
     this.LASTINDEX = tasks.length;
   }
