@@ -17,7 +17,7 @@ class Ui {
           Element.innerHTML = `
           <div class="task-cont">
             <input type="checkbox" name="task" id="task-check-box">
-            <input type="text" value="${task.description}" class="task-value">
+            <input type="text" value="${task.description}" class="task-value" id="${task.index}">
           </div>
           <div class="opp-icon">
             <i class="fa fa-ellipsis-v dots-icon"></i>
@@ -32,14 +32,34 @@ class Ui {
       elem.inputField.value = '';
     }
 
-    static changeIconTrash(trash) {
-      trash.className = '';
+    static changeIconTrash(icon) {
+      icon.className = '';
       const deleteIconClass = ['fa', 'fa-trash', 'trash-icon'];
-      trash.classList.add(...deleteIconClass);
+      icon.classList.add(...deleteIconClass);
+    }
+
+    static changeIconDots(icon) {
+      icon.className = '';
+      const deleteIconClass = ['fa', 'fa-ellipsis-v', 'dots-icon'];
+      icon.classList.add(...deleteIconClass);
     }
 
     static taskActiveState(task) {
-      task.style.backgroundColor = '#fffed7';
+      task.style.backgroundColor = '#f5f3ad';
+      Ui.changeIconTrash(task.lastElementChild.lastElementChild);
+    }
+
+    static taskClearActiveState(tasks) {
+      for (const task of tasks) {
+        task.style.backgroundColor = 'white';
+        Ui.changeIconDots(task.lastElementChild.lastElementChild);
+      }
+    }
+
+    static removeTask(task) {
+      const elem = new Elements();
+      const taskContainer = elem.taskContainer;
+      taskContainer.removeChild(task);
     }
 };
 // Display tasks.
@@ -57,12 +77,22 @@ elem.inputField.addEventListener('keypress', (event) => {
   }
 });
 
-// Delete
-elem = new Elements();
+// Delete 
 elem.listContainer.addEventListener('click', (event) => {
 
-  const i = event.target.parentElement.parentElement.lastElementChild.firstElementChild;
-  const task = event.target.parentElement.parentElement;
-  Ui.taskActiveState(task);
-  console.log(task);
+  if(event.target.classList.contains('task-value')) {
+    // clear active state to the task
+    elem = new Elements();
+    const tasks = elem.taskContainer.children;
+    Ui.taskClearActiveState(tasks);
+
+    // set Acive state to the task
+    const task = event.target.parentElement.parentElement;
+    Ui.taskActiveState(task);
+  }
+
+  if(event.target.classList.contains('trash-icon')) {
+    Ui.removeTask(event.target.parentElement.parentElement);
+    Store.removeTask(event.target.parentElement.previousElementSibling.lastElementChild.id);
+  }
 });

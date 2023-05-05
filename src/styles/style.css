@@ -120,10 +120,7 @@ input {
   color: #404040;
   font-weight: 500;
   width: 90%;
-}
-
-.task-value:focus {
-  background-color: #fffed7;
+  background-color: transparent;
 }
 
 .item .clear-all-btn {
