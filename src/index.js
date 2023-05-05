@@ -2,7 +2,6 @@ import './styles/style.css';
 import Store from './modules/Store.js';
 import Elements from './modules/Elements.js';
 import Task from './modules/Task.js';
-import { Color } from 'three';
 
 class Ui {
   static displayTasks() {
@@ -51,7 +50,7 @@ class Ui {
   }
   static removeTask(task) {
     const elem = new Elements();
-    const taskContainer = elem.taskContainer;
+    const {taskContainer} = elem;
     taskContainer.removeChild(task);
   }
 }
