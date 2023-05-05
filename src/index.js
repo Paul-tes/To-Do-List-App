@@ -37,6 +37,10 @@ class Ui {
       const deleteIconClass = ['fa', 'fa-trash', 'trash-icon'];
       trash.classList.add(...deleteIconClass);
     }
+
+    static taskActiveState(task) {
+      task.style.backgroundColor = '#fffed7';
+    }
 };
 // Display tasks.
 Ui.displayTasks();
@@ -56,8 +60,9 @@ elem.inputField.addEventListener('keypress', (event) => {
 // Delete
 elem = new Elements();
 elem.listContainer.addEventListener('click', (event) => {
-  event.target.style.backgroundColor = '#fffed7';
 
   const i = event.target.parentElement.parentElement.lastElementChild.firstElementChild;
-  Ui.changeIconTrash(i);
+  const task = event.target.parentElement.parentElement;
+  Ui.taskActiveState(task);
+  console.log(task);
 });
