@@ -45,7 +45,7 @@ class Store {
     tasks.forEach((task) => {
       task.index = i;
       i += 1;
-    })
+    });
     localStorage.setItem('tasks', JSON.stringify(tasks));
     this.LASTINDEX = tasks.length;
   }
