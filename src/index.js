@@ -15,8 +15,8 @@ class Ui {
     const Element = document.createElement('div');
     Element.innerHTML = `
     <div class="task-cont">
-      <input type="checkbox" name="task" class="task-check-box" ${task.completed ? 'checked': ''}>
-      <input type="text" value="${task.description}" class="task-value ${task.completed ? 'checked': 'unchacked'}" id="${task.index}">
+      <input type="checkbox" name="task" class="task-check-box" ${task.completed ? 'checked' : ''}>
+      <input type="text" value="${task.description}" class="task-value ${task.completed ? 'checked' : 'unchacked'}" id="${task.index}">
     </div>
     <div class="opp-icon">
       <i class="fa fa-ellipsis-v dots-icon"></i>
@@ -64,7 +64,7 @@ class Ui {
 // Display tasks.
 Ui.displayTasks();
 
-// add Element
+// add Task
 let elem = new Elements();
 elem.inputField.addEventListener('keypress', (event) => {
   if (event.key === 'Enter' && elem.inputField.value !== '') {
@@ -119,8 +119,8 @@ elem.listContainer.addEventListener('click', (event) => {
   // remove all, update Ui and Local Storage.
   if (event.target.classList.contains('clear-all-btn')) {
     Store.clearCompleteTasks();
-    location.reload();
-  } 
+    window.location.reload();
+  }
 });
 
 // update task when the user lefts the input field.
