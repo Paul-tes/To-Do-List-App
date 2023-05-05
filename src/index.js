@@ -23,34 +23,40 @@ class Ui {
         `;
         Element.classList.add('task');
         taskContainer.appendChild(Element);
-  };
+  }
+
   static clearInput() {
     const elem = new Elements();
     elem.inputField.value = '';
   }
+
   static changeIconTrash(icon) {
     icon.className = '';
     const deleteIconClass = ['fa', 'fa-trash', 'trash-icon'];
     icon.classList.add(...deleteIconClass);
   }
+
   static changeIconDots(icon) {
     icon.className = '';
     const deleteIconClass = ['fa', 'fa-ellipsis-v', 'dots-icon'];
     icon.classList.add(...deleteIconClass);
   }
+
   static taskActiveState(task) {
     task.style.backgroundColor = '#f5f3ad';
     Ui.changeIconTrash(task.lastElementChild.lastElementChild);
   }
+
   static taskClearActiveState(tasks) {
     for (const task of tasks) {
       task.style.backgroundColor = 'white';
       Ui.changeIconDots(task.lastElementChild.lastElementChild);
     }
   }
+
   static removeTask(task) {
     const elem = new Elements();
-    const {taskContainer} = elem;
+    const { taskContainer } = elem;
     taskContainer.removeChild(task);
   }
 }
