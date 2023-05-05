@@ -22,8 +22,8 @@ class Ui {
       <i class="fa fa-ellipsis-v dots-icon"></i>
     </div>
     `;
-      Element.classList.add('task');
-      taskContainer.appendChild(Element);
+    Element.classList.add('task');
+    taskContainer.appendChild(Element);
   }
 
   static clearInput() {
@@ -49,7 +49,7 @@ class Ui {
   }
 
   static taskClearActiveState(tasks) {
-    for (let i = 0; i < tasks.length; i++) {
+    for (let i = 0; i < tasks.length; i+=1) {
       tasks[i].style.backgroundColor = 'white';
       Ui.changeIconDots(tasks[i].lastElementChild.lastElementChild);
     }
