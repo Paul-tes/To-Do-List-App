@@ -39,7 +39,7 @@ class Store {
   static removeTask (index) {
     let tasks = Store.getTasks();
     tasks.forEach((task, i) => {
-      if(task.index === index) {
+      if(task.index == index) {
         tasks.splice(i, 1);
       }
     });
