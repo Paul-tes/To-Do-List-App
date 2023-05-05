@@ -49,7 +49,7 @@ class Ui {
   }
 
   static taskClearActiveState(tasks) {
-    for (let i = 0; i < tasks.length; i+=1) {
+    for (let i = 0; i < tasks.length; i += 1) {
       tasks[i].style.backgroundColor = 'white';
       Ui.changeIconDots(tasks[i].lastElementChild.lastElementChild);
     }
