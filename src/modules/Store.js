@@ -1,6 +1,6 @@
 import Task from './Task.js';
-class Store {
 
+class Store {
   // LASTINDEX is the value of the last item index in the local storage.
   static LASTINDEX = 0;
 
@@ -8,8 +8,8 @@ class Store {
   // return lists of to do lists from the local storage.
   static getTasks() {
     let tasks;
-    if(localStorage.getItem('tasks') === null) {
-      tasks = []; 
+    if (localStorage.getItem('tasks') === null) {
+      tasks = [];
     } else {
       tasks = JSON.parse(localStorage.getItem('tasks'));
       this.LASTINDEX = tasks.length;
@@ -36,10 +36,10 @@ class Store {
   // update local storage.
   // update LASTINDEX.
   // return void.
-  static removeTask (index) {
-    let tasks = Store.getTasks();
+  static removeTask(index) {
+    const tasks = Store.getTasks();
     tasks.forEach((task, i) => {
-      if(task.index == index) {
+      if (task.index === Number(index)) {
         tasks.splice(i, 1);
       }
     });
