@@ -2,9 +2,9 @@ import LocalStorage from "../__Mock__/LocalStorage.js";
 import Store from "./Store.js";
 import Task from "../src/modules/Task.js";
 
-describe("ToDo operational functions", ()=> {
+describe("Store operational functions Test", ()=> {
 
-  // Test Case 1
+  // addTask Test Case [1]
   test('when The new task is added it should be shown on the store', ()=> {
     // Arrange
     const store = new Store();
@@ -18,7 +18,7 @@ describe("ToDo operational functions", ()=> {
     expect(taskInLocalStorage).toEqual(task);
   })
 
-  // Test two
+  // addtask Test Case [2]
   test('when The new task is added it should be shown on the store', ()=> {
     // Arrange
     const store = new Store();
@@ -30,5 +30,31 @@ describe("ToDo operational functions", ()=> {
 
     // assert
     expect(taskInLocalStorage).toEqual(task);
+  })
+
+  // removeTask test case [1]
+  test('when the task is removed from Store it should be not inside LocalStorage', ()=> {
+    // Arrange
+    const store = new Store();
+    const length = LocalStorage.getItems().length;
+
+    // Act
+    store.removeTask(length);
+    const localStorageLenght = LocalStorage.getItems().length;
+    // assert
+    expect(localStorageLenght).toBeLessThan(length);
+  })
+
+  // removeTask test case [2]
+  test('when the task is removed from Store it should be not inside LocalStorage', ()=> {
+    // Arrange
+    const store = new Store();
+    const length = LocalStorage.getItems().length;
+
+    // Act
+    store.removeTask(length);
+    const localStorageLenght = LocalStorage.getItems().length;
+    // assert
+    expect(localStorageLenght).toBeLessThan(length);
   })
 })
