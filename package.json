@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,10 @@
   },
   "homepage": "https://github.com/Paul-tes/To-Do-List-App#readme",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.21.5",
     "css-loader": "^6.7.3",
     "html-webpack-plugin": "^5.5.1",
+    "jest": "^29.5.0",
     "style-loader": "^3.3.2",
     "webpack": "^5.81.0",
     "webpack-cli": "^5.0.2",
